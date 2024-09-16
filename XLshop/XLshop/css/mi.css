@@ -1,0 +1,1075 @@
+/* 定义小图标字体 */
+@font-face {
+    font-family: 'icomoon';
+    src:  url('../fonts/icomoon.eot?p92u7r');
+    src:  url('../fonts/icomoon.eot?p92u7r#iefix') format('embedded-opentype'),
+      url('../fonts/icomoon.ttf?p92u7r') format('truetype'),
+      url('../fonts/icomoon.woff?p92u7r') format('woff'),
+      url('../fonts/icomoon.svg?p92u7r#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+/* css样式的开始 */
+/* 定义导航栏 */
+.header{
+    /* 导航栏高与宽 */
+    width: 100%;
+    height: 40px;
+    /* 字体行高 */
+    line-height: 40px;
+    /* 背景颜色 */
+    background-color: #333333;
+    /* 字体颜色 */
+    color: #b0b0b0;
+    /* 字体大小 */
+    font-size: 12px;
+}
+/* 定义导航栏中间文字一块的地方 */
+.wrap{
+    width: 1226px;
+    /* margin是指元素与元素之间的距离 */
+    margin: 0 auto;
+}
+/* 先定义左边导航栏的位置 */
+.header-left{
+    float: left;
+}
+/* 再定义右边导航栏的位置 */
+.header-right{
+    float: right;
+}
+/* 将导航栏中所有的li沿着导航栏的起始位置左浮动 */
+.header li{
+    position: relative;
+    float: left;
+}
+/* 超链接的文字颜色 */
+.header a{
+    color: #b0b0b0;
+}
+/* 给超链接一个动作，当鼠标在a上的时候，文字变色 */
+.header a:hover{
+    color: #fff;
+}
+/* 导航栏中的竖杠 */
+.header span{
+    color: #424242;
+    /* 上下为0，左右为3.6 */
+    margin: 0 6.6px;
+}
+/* 购物车 */
+.cart{
+    z-index: 850;
+    /* 相对定位的含义是盒子从原来出现的位置偏移了多少 */
+    position: relative;
+    margin-left: 25px;
+    width: 120px;
+    height: 40px;
+    background-color: #424242;
+    /* 光标进入范围内变成小手 */
+    cursor: pointer;
+    /* 延迟时间为0.3秒 */
+    transition: all .2s;
+}
+/* 响应购物车模块的时候，背景颜色改变 */
+.cart:hover{
+    background-color: #fff;
+}
+/* 响应购物车模块的时候，超链接文字颜色变色 */
+.cart:hover a{
+    color:#ff6700;
+}
+/* 在某个元素之前插入一些内容 */
+/* 这里是插入购物车图标 */
+.cart::before{
+    /* 输入购物车图标的代码 */
+    content: '\e93a';
+    /* 定义图标的字体样式 */
+    font-family: 'icomoon';
+    /* 图标距离右边有多少距离 */
+    margin-right: 7px;
+}
+/* 购物车显现一栏 */
+.cart-list{
+    /* 绝对定位，相对于static定位以外的第一个上级元素进行定位 */
+    position: absolute;
+    /* 定义绝对定位距离上边和右边多少像素 */
+    top: 40px;
+    right: 0;
+    width: 316px;
+    /* 将盒子隐藏起来 */
+    height: 0px;
+    background-color: #fff;
+    /* 给盒子添加阴影效果，长0，宽2px，a为不透明度 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0,.15);
+    color: #424242;
+    /* 将所有属性获得0.3秒的过渡时间效果 */
+    translate: all .3s;
+    /* 高度设置为0,文字溢出 */
+    /* 使用overflow将溢出的元素隐藏起来 */
+    /* text-overflow: ellipsis;	当对象内文本溢出时显示省略标记（...） */
+    overflow: hidden;
+}
+/* 当鼠标放在购物车模块的时候，购物车栏出现 */
+.cart:hover>.cart-list{
+    /* 购物车栏的高度从0变成100px */
+    height: 100px;
+    /* 文字行高也是 */
+    line-height: 100px;
+}
+/* 下载app部分 */
+.download{
+    /* 显示在最上层 */
+    z-index: 900;
+    /* 使用绝对定位防止撑开父类 */
+    position: absolute;
+    top: 40px;
+    left:50%;
+    margin-left: -62px;
+    width: 124px;
+    height: 0;
+    background-color: #fff;
+    /* 盒子阴影 */
+    box-shadow: 0 1px 5px #ccc;
+    /* 隐藏溢出 */
+    overflow: hidden;
+    /* 延迟显示 */
+    transition: all .3s;
+}
+/* 定义下载图片的大小 */
+.download img{
+    width: 90px;
+    /* 上边距18px 左右0px 下边距12px */
+    margin: 18px 0 12px;
+}
+/* 定义下载文字的属性 */
+.download p{
+    color: #333;
+    font-size: 14px;
+    line-height: 14px;
+}
+/* 鼠标悬停在li上面是出现下载图标 */
+.header-left>li:hover>.download{
+     height: 148px; 
+}
+/* 三角形 */
+.triangle{
+    /* 隐藏 */
+    display: none; 
+    /* 绝对定位 */
+    position: absolute;
+    /* bottom为0是为了让他贴于li的底部 */
+    bottom: 0;
+    /* 水平居中 */
+    left: 50%;
+    margin-left: -8px;
+    /* 绘制三角形 */
+    width: 0;
+    height: 0;
+    border-bottom: 8px solid #fff;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+}
+/* 将鼠标放置li上时将三角形转换为块级元素 */
+.header-left>li:hover>.triangle{
+    display: block;
+}
+/* css样式的结束 */
+/* 导航样式开始 */
+/* 设置整体导航栏的样式 */
+.nav{
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: #fff;
+}
+/* 商标栏 */
+.logo{
+    width: 62px;
+    height: 56px;
+    /* 让其浮动于导航栏中 */
+    float: left;
+    /* 与header栏隔开距离 */
+    margin-top: 22px;
+    text-align: left;
+}
+/* 搜索栏 */
+.search{
+    position: relative;
+    width: 296px;
+    height: 50px;
+    /* 让其浮动于导航栏中 */
+    float: left;
+    /* 与header栏隔开距离 */
+    margin-top: 25px;
+}
+/* 导航栏 */
+.nav-bar{
+    width: 868px;
+    height: 100px;
+    /* 让其浮动于导航栏中 */
+    float: left;
+    /* 与商标栏隔开距离 */
+    padding-left: 172px;
+    /* 盒子大小为width+padding+border */
+    box-sizing: border-box;
+}
+/* 让logo显示在盒子里面 */
+.logo img{
+    width: 56px;
+}
+/* 当鼠标放在logo上的时候,logo向x轴位移3px */
+.logo img:hover{
+    /* translate是2D移动，第一个参数对应X轴，第二个参数对应Y轴 */
+    transform: translate(3px);
+}
+
+.nav-bar>ul>li{
+    height: 100px;
+    /* 横向排列li */
+    float: left;
+    /* 使导航栏内的li产生间距 */
+    padding: 38px 10px;
+    /* 盒子大小为width+padding+border */
+    box-sizing: border-box;
+}
+/* 当鼠标触碰到li时，文字颜色发生改变 */
+.nav-bar>ul>li>a:hover{
+    color: #ff6700;
+}
+.search>input{
+    /* 用了浮动可以转换成块级元素，显示在同一行 */
+    float: left;
+    width: 245px;
+    height: 50px;
+    /* 给搜索框加个1px的实线边框 */
+    border: 1px solid #e0e0e0;
+    /* 使文字和边框有距离 */
+    padding: 0 10px;
+    /* 防止padding和边框将盒子撑大 */
+    box-sizing: border-box;
+    /* 取消右边框 */
+    border-right: none;
+    /* 点击输入框时取消显示轮廓 */
+    outline: none;
+    /* 延迟显示 */
+    transition: all .2s;
+}
+/* 放大镜 */
+.icon-search:before {
+    content: "\e986";
+    font-family: 'icomoon';
+}
+/* 搜索框放大镜内容 */
+.search>a{
+    /* 浮动使其紧贴搜索框 */
+    float: left;
+    /* 定义放大镜边框大小 */
+    width: 50px;
+    height: 50px;
+    /* 加边框 */
+    border: 1px solid #e0e0e0;
+    /* 使搜索框不被撑开 */
+    box-sizing: border-box;
+    /* 改变放大镜大小 */
+    font-size: 24px;
+    color: #616161;
+    /* 居中显示 */
+    line-height: 48px;
+    /* 延迟显示 */
+    transition: all .2s;
+}
+.search>a:hover{
+    /* 放到放大镜上的时候改变背景颜色 */
+    background-color: #ff6700;
+    /* 放到放大镜上的时候改变边框颜色 */
+    border-color: #ff6700;
+    /* 放到放大镜上的时候改变放大镜颜色 */
+    color: #fff;
+}
+.search>input:hover,.search>input:hover+a{
+    border-color: #b0b0b0;
+}
+/* :focus是CSS 伪类表示获得焦点的元素（如表单输入）。当用户点击或轻触一个元素或使用键盘的 Tab 键选择它时，它会被触发。 */
+.search>input:focus,.search>input:focus+a{
+    border-color: #ff6700;
+}
+.search-list{
+    z-index: 800;
+    /* 和搜索框绝对定位 */
+    position: absolute;
+    /* 距离搜索框顶部50px */
+    top: 50px;
+    left: 0;
+    /* 边框距离再加上搜索框宽度为246px */
+    width: 246px;
+    height: 241px;
+    border: 1px solid #ff6700;
+    /* 没有上边框 */
+    border-top: none;
+    /* 不撑大盒子 */
+    box-sizing: border-box;
+    background-color: #fff;
+    /* 不显示 */
+    display: none;
+}
+/* 鼠标点击搜索框的时候，搜索条显示 */
+.search>input:focus~.search-list{
+    display: block;
+}
+.search-list>a{
+    /* 搜索框中每条的高宽度 */
+    width: 243px;
+    /* 文字左对齐 */
+    text-align: left;
+    height: 30px;
+    /* 每条a之间的距离 */
+    padding: 6px 15px;
+    /* 让a变成块元素 */
+    display: block;
+    /* 防止撑开 */
+    box-sizing: border-box;
+    color: #424242;
+    /* 字体大小 */
+    font-size: 12px;
+}
+/* 导航样式结束 */
+/* banner样式开始 */
+.banner{
+    /* 定义大盒子的宽高度 */
+    width: 100%;
+    height: 460px;
+}
+.banner-box{
+    /* 定义大盒子中展示页小盒子的宽高度 */
+    width: 1226px;
+    height: 460px;
+    /* 放入初始背景图片 */
+    background-image: url("https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7f46857e9876f168ae660dbfb0909169.jpeg?w=2452&h=920");
+    /* 让图片完全显于小盒子中 */
+    background-size: 100%;
+    /* animation是通过定义多个关键帧以及每个关键帧中元素的属性值来实现更为复杂的的动画效果 */
+    /* 每次16秒 */
+    /* linear：动画从头到尾的速度是相同的。 */
+    /* infinite：指定动画应该播放无限次（永远） */
+    animation: banner 15s linear infinite;
+}
+.banner-box:hover{
+    /* 当鼠标触碰到图片时，暂停动画 */
+    animation-play-state: paused;
+}
+/* 设置关键帧 */
+@keyframes banner {
+    0%{
+        background-image: url("https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/7f46857e9876f168ae660dbfb0909169.jpeg?w=2452&h=920");
+    }
+    33%{
+        background-image: url("https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/c66eff8e22a48ded4854017b25cbf631.jpeg?thumb=1&w=1533&h=575&f=webp&q=90");
+    }
+    66%{
+        background-image: url("https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/bf7fecc077e7eaf1bfc66f8e92ff6edf.jpg?thumb=1&w=1533&h=575&f=webp&q=90");
+    }
+}
+/* 横幅的导航栏定位 */
+.banner>.wrap{
+    position: relative;
+}
+/* 导航栏的定义 */
+.slide{
+    /* 绝对定位于小盒子里 */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 234px;
+    height: 420px;
+    /* 内边距上下隔开20px */
+    padding: 20px 0;
+    /* 颜色和透明度0.6 */
+    background-color: rgba(105, 101, 101, .6);
+}
+/* 向右箭头的定义 */
+.icon-ctrl:after {
+    /* 右浮动 */
+    float: right;
+    /* 距离右边20px */
+    padding-right: 20px;
+    /* 大小 */
+    font-size: 22px;
+    content: "\ea50";
+    color: #e0e0e0;
+    font-family: 'icomoon';
+    /* 字体粗细程度为最粗 */
+    font-weight: bolder;
+}
+.slide>ul>li{
+    height: 42px;
+    /* 导航栏中字体的行高 */
+    line-height: 42px;
+    /* 起初为居中，将其左对齐 */
+    text-align: left;
+    /* 与边框隔开30px */
+    padding-left: 30px;
+}
+/* 定义li中文字的大小与颜色 */
+.slide>ul>li>a{
+    color: #fff;
+    font-size: 14px;
+}
+/* 当鼠标经过li的时候，颜色变色 */
+.slide>ul>li:hover{
+    background-color: #ff6700;
+}
+.slide-list li:hover span{
+    /* 鼠标经过变色 */
+    color: #ff6700;
+}
+/* 左右箭头 */
+.prev,.next{
+    position: absolute;
+    top:50%;
+    /* 往上移 */
+    margin-top: -34.5px;
+    width: 41px;
+    height: 69px;
+    /* 插入精灵图 */
+    background-image: url("../images/icon-slides.png");
+    /* 鼠标变成小手 */
+    cursor: pointer;
+}
+.prev{
+    left: 234px;
+    /* 调整精灵图 */
+    background-position: -83px;
+}
+.next{
+    right: 0;
+    /* 调整精灵图 */
+    background-position: -124px;
+}
+.prev:hover{
+    /* 调整精灵图 */
+    background-position: 0;
+}
+.next:hover{
+    /* 调整精灵图 */
+    background-position: -42px;
+}
+/* banner样式结束 */
+/* 广告样式开始 */
+.adv{
+    width: 100%;
+    height: 170px;
+    /* 与banner上下形成外边距 */
+    margin: 14px 0 26px;
+}
+.adv-aside{
+    width: 234px;
+    height: 170px;
+    /* 上下左右3px */
+    padding: 3px;
+    /* 不撑开 */
+    box-sizing: border-box;
+    /* 背景颜色 */
+    background-color: #5f5750;
+    /* 左浮动 */
+    float: left;
+}
+.adv-img{
+    width: 316px;
+    height: 170px;
+    float: left;
+    /* 距离广告左部分加个左外边距 */
+    margin-left: 14.6px;
+    /* 延迟显示 */
+    transition: all .2s linear;
+}
+.adv-img img{
+    /* 让图片显于盒子中 */
+    width: 100%;
+}
+.adv-img:hover{
+    /* 鼠标放在img上时出现阴影 */
+    box-shadow: 0 15px 30px rgba(0, 0, 0,.1);
+}
+.adv-aside li{
+    /* 左浮动 */
+    float: left;
+    width: 76px;
+    height: 82px;
+    /* 内边距 */
+    padding: 19px 0;
+    /* 不撑开 */
+    box-sizing: border-box;
+    position: relative;
+}
+/* 定义字体图标样式 */
+.adv-aside span{
+    /* span是行内元素，将其转化为块级元素 */
+    display: block;
+    /* 定义字体图标字体大小 */
+    font-size: 22px;
+    /* 与介绍文字形成边距 */
+    margin-bottom: 4px;
+}
+.adv-aside a{
+    /* 转换为块级元素 */
+    display: block;
+    color: #fff;
+    /* 字体大小 */
+    font-size: 12px;
+    /* 透明度0.7 */
+    opacity: .7;
+    /* 延迟显示 */
+    transition: all .2s;
+    font-weight: light;
+}
+.adv-aside a:hover{
+    /* 透明度为1 */
+    opacity: 1;
+}
+/* 字体图标 */
+.icon-clock:before {
+    content: "\e94e";
+    color: #fff;
+    font-family: 'icomoon';
+}
+/* 字体图标 */
+.icon-office:before {
+    content: "\e903";
+    color: #fff;
+    font-family: 'icomoon';
+}
+/* 字体图标 */
+.icon-facebook2:before {
+    content: "\ea91";
+    color: #fff;
+    font-family: 'icomoon';
+}
+/* 字体图标 */
+.icon-credit-card:before {
+    content: "\e93f";
+    color: #fff;
+    font-family: 'icomoon';
+}
+/* 字体图标 */
+.icon-coin-yen:before {
+    content: "\e93e";
+    color: #fff;
+    font-family: 'icomoon';
+}
+/* 字体图标 */
+.icon-mobile:before {
+    content: "\e958";
+    color: #fff;
+    font-family: 'icomoon';
+}
+/* 字体图标 */
+.row::after,.col::before{
+    position: absolute;
+    background-color: #665e57;
+    content: "";
+}
+/* 字体图标 */
+.row::after{
+    bottom: 0;
+    left: 6px;
+    height: 1px;
+    width: 64px;
+}
+/* 字体图标 */
+.col::before{
+    width: 1px;
+    height: 70px;
+    right: 0;
+    top:6px;
+}
+/* 广告样式结束 */
+/* 主体样式开始 */
+.body{
+    width: 100%;
+    background-color: #f5f5f5;
+    padding: 4px 0 12px;
+    overflow: hidden;
+}
+/* 主体样式结束 */
+/* 手机样式开始 */
+.ad-banner{
+    width: 100%;
+    height: 120px;
+    /* 上下边距 */
+    margin: 22px 0;
+}
+.title{
+    /* 字体颜色 */
+    color:#333;
+    /* 字体大小 */
+    font-size: 22px;
+    /* 字体粗细 */
+    font-weight: 200;
+    /* text-align CSS 属性定义行内内容（例如文字）如何相对它的块父元素对齐。text-align 并不控制块元素自己的对齐，只控制它的行内内容的对齐。 */
+    text-align: left;
+    /* 字体上下居中显示 */
+    line-height: 58px;
+    margin-top: 30px;
+}
+/* 字体图标 */
+.icon-circle-right:before {
+    content: "\ea42";
+    font-family: 'icomoon';
+    margin-left: 8px;
+}
+.more{
+    /* 在h2这个行内元素中右对齐 */
+    float: right;
+    color: #424242;
+    font-size: 16px;
+    /* 延迟显示 */
+    transition: all .4s;
+}
+/* 鼠标放置变色 */
+.more:hover{
+    color: #ff6700;
+}
+/* 定于商品展示页面的盒子大小 */
+.body-box{
+    width: 100%;
+    height: 614px;
+}
+/* 定义手机商品展示页面左侧 */
+.body-box-left-phone{
+    width: 234px;
+    height: 614px;
+    /* 让左侧与右侧都显示在同一行 */
+    float: left;
+    /* 延迟显示 */
+    transition: all .2s linear;
+}
+/* 定义商品展示页面右侧 */
+.body-box-right{
+    width: 992px;
+    height: 614px;
+    /* 让左侧与右侧都显示在同一行 */
+    float: left;
+}
+/* 定义商品展示页面的样式 */
+.items{
+    /* 宽高参数 */
+    width: 234px;
+    height: 300px;
+    /* 使li浮动 */
+    float: left;
+    /* 背景颜色 */
+    background-color: #fff;
+    /* 底部边距 */
+    margin-bottom: 14px;
+    /* 左边距 */
+    margin-left: 14px;
+    /* 延迟显示 */
+    transition: all .2s linear;
+}
+.items:hover,.body-box-left-phone:hover,.last-items>div:hover,.video-items:hover{
+    /* 鼠标放上去显示阴影 */
+    box-shadow: 0 15px 30px rgba(0,0,0,.1);
+    /* 向Y轴下移2px */
+    transform: translateY(-2px);
+}
+/* 商品图片样式定义 */
+.img1{
+    width: 160px;
+    /* 顶部外边距 */
+    margin-top: 20px;
+    /* 与文字介绍隔开底边距 */
+    margin-bottom: 18px;
+}
+
+/* 定义商品介绍文字的共同样式 */
+.name2,.desc2{
+    width: 214px;
+    /* 文字居中显示 */
+    margin: 0 auto;
+    /* text-overflow 属性并不会强制“溢出”事件的发生，因此为了能让文本能够溢出容器，你需要在元素上添加几个额外的属性：overflow 和 white-space。 */
+    /* 用于指定盒子中文本溢出的显示方式 */
+    /* ellipsis：显示省略符号来代表被修剪的文本。 */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* 定义商品名字的样式 */
+.name2{
+    height: 21px;
+    /* 文字上下居中 */
+    line-height: 21px;
+    /* 文字大小 */
+    font-size: 14px;
+    /* 外边距 */
+    margin-bottom: 2px;
+}
+/* 定义商品介绍的样式 */
+.desc2{
+    height: 18px;
+    /* 文字上下居中 */
+    line-height: 18px;
+    /* 外边距 */
+    margin-top: 10px;
+    /* 文字大小 */
+    font-size: 12px;
+    /* 字体颜色 */
+    color: #b0b0b0;
+}
+/* 价格样式 */
+.price2{
+    color: #ff6700;
+    font-size: 14px;
+}
+/* 删除的价格样式 */
+.price2>del{
+    color: #b0b0b0;
+    /* 与价格隔开左边距 */
+    margin-left: 7px;
+}
+/* 手机样式结束 */
+/* 家电样式开始 */
+/* 普通左边有两行items的左盒子 */
+.body-box-left{
+    width: 234px;
+    height: 614px;
+    /* 让左侧与右侧都显示在同一行 */
+    float: left;
+    /* 延迟显示 */
+    transition: all .2s linear;
+}
+.body-box-left .items{
+    /* 左边距为0 */
+    margin-left: 0;
+}
+/* 设置最后一个items的样式，将其分为两小块 */
+.last-items{
+    width: 234px;
+    height: 300px;
+    float: left;
+    margin-left: 14px;
+}
+/* 设置两小块的样式 */
+.last-items>div{
+    width: 234px;
+    height: 143px;
+    background-color: #fff;
+    /* 延迟显示 */
+    transition: all .2s linear;
+}
+/* 设置第一个小盒子与第二个小盒子的外底部边距 */
+.last-items>div:first-child{
+    margin-bottom: 14px;
+}
+/* 盒子中间文本的样式 */
+.items-text{
+    width: 94px;
+    height: 21px;
+    float: left;
+    margin-left: 30px;
+    margin-top: 40px;
+    color: #333;
+    /* 文字左对齐 */
+    text-align: left;
+    font-size: 14px;
+    line-height: 21px;
+}
+/* 设置第二个文本的样式 */
+.items-text>p:nth-child(2){
+    font-size: 14px;
+    color: #ff6700;
+    margin-top: 5px;
+}
+.items-text-last{
+    width: 94px;
+    height: 27px;
+    float: left;
+    margin-left: 30px;
+    color: #333;
+    text-align: left;
+    font-size: 18px;
+    margin-top: 50px;
+    position: absolute;
+}
+.items-text-last>p:nth-child(2){
+    font-size: 12px;
+    color: #757575;
+    margin-top: 5px;
+}
+.icon-play2::after {
+    content: "\ea15";
+    font-family: 'icomoon';
+    position: relative;
+    top: 50px;
+    right: -60px;
+    font-size: 48px;
+    color: #ff6700;
+}
+/* 插入小盒子中的图片 */
+.last-items img{
+    float:right;
+    width: 80px;
+    margin: 32px 20px 0 0;
+}
+/* 家电样式结束 */
+/* 视频样式开始 */
+.video-items{
+    width: 296px;
+    height: 285px;
+    background-color: #fff;
+    float: left;
+    /* 底部边距 */
+    margin-bottom: 14px; 
+    /* 右边距 */
+    margin-right: 14px;
+    /* 延迟显示 */
+    transition: all .2s linear;
+}
+/* 设置最后一个盒子右边距为0，防止它跑到下一行 */
+.video-items:last-child{
+    margin-right: 0;
+}
+.video-img{
+    width: 100%;
+    height: 180px;
+    /* 与字体图标相对定位 */
+    position: relative;
+}
+.video-items p{
+    width: 268px;
+    height: 21px;
+    /* 使元素水平居中，而不是内容 */
+    margin: 28px auto 6px;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+/* 字体图标 */
+.icon-play2:before {
+    content: "\ea15";
+    font-family: 'icomoon';
+    /* 绝对定位在img上 */
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    color: #ffffff;
+    font-size: 30px;
+    transition: all .2s linear;
+}
+/* 鼠标放置变色 */
+.video-img:hover .icon-play2:before{
+    color: #ff6700;
+}
+/* 视频样式结束 */
+/* 页脚样式开始 */
+/* 页脚位置块 */
+.footer-site{
+    width: 100%;
+    height: 473px;
+    background-color: #fff;
+}
+/* 页脚信息块 */
+.footer-info{
+    width: 100%;
+    height: 206px;
+    /* 上下30px，左右为0 */
+    padding: 30px 0;
+    background-color:#fafafa;
+}
+/* 页脚服务块 */
+.footer-service{
+    width: 100%;
+    height: 25px;
+    /* 上下间距27 */
+    padding: 27px 0;
+    /* 形成横杠 */
+    border-bottom: 1px solid #e0e0e0;
+}
+.footer-service li{
+    float: left;
+    width: 19.8%;
+    height: 25px;
+    line-height: 25px;
+    /* 右边框隔开 */
+    border-right: 1px solid #e0e0e0;
+}
+/* 取消最后一个li的右边框 */
+.footer-service li:last-child{
+    border-right: none;
+}
+.footer-service a{
+    color: #616161;
+    transition: all .2s linear;
+}
+/* 变色 */
+.footer-service a:hover{
+    color: #ff6700;
+}
+/* 字体图标 */
+.icon-wrench:before {
+    position: relative;
+    top: 5px;
+    content: "\e991";
+    font-family: 'icomoon';
+    font-size: 24px;
+    margin-right: 6px;
+}
+/* 字体图标 */
+.icon-history:before {
+    position: relative;
+    top: 5px;
+    content: "\e94d";
+    font-family: 'icomoon';
+    font-size: 24px;
+    margin-right: 6px;
+}
+/* 字体图标 */
+.icon-spinner9:before {
+    position: relative;
+    top: 5px;
+    content: "\e982";
+    font-family: 'icomoon';
+    font-size: 24px;
+    margin-right: 6px;
+}
+/* 字体图标 */
+.icon-gift:before {
+    position: relative;
+    top: 5px;
+    content: "\e99f";
+    font-family: 'icomoon';
+    font-size: 24px;
+    margin-right: 6px;
+}
+/* 字体图标 */
+.icon-location2:before {
+    position: relative;
+    top: 5px;
+    content: "\e948";
+    font-family: 'icomoon';
+    font-size: 24px;
+    margin-right: 6px;
+}
+/* 底部链接块 */
+.footer-links{
+    width: 100%;
+    height: 172px;
+    padding: 40px 110px;
+
+    /* 这里是给li设置样式，因为li没有设置样式，所以继承父类 */
+    font-size: 14px;
+    color: #424242;
+}
+/* 由多个ul组成的links区域 */
+.footer-links>ul{
+    float: left;
+    width: 160px;
+    /* 文字左对齐 */
+}
+.footer-links a{
+    color: #757575;
+    font-size: 12px;
+}
+.footer-links li{
+    height: 18px;
+    line-height: 18px;
+    margin-top: 10px;
+}
+/* 给服务块的第一个标题设置样式 */
+.footer-links li:first-child{
+    height: 17px;
+    line-height: 17.5px;
+    margin: -1px 0 26px;
+}
+.footer-links a:hover{
+    color: #ff6700;
+}
+/* 服务块右边的联系区域 */
+.contact{
+    float: right;
+    width: 251px;
+    height: 111px;
+    /* 设置左边框 */
+    border-left: 1px solid #e0e0e0;
+}
+/* 字体图标 */
+.icon-finder:before {
+    content: "\eabf";
+    font-family: 'icomoon';
+    color: #ff6700;
+    font-size: 12px;
+}
+/* 设置电话样式 */
+.tel{
+    color: #ff6700;
+    font-size: 22px;
+    line-height: 22px;
+    margin-bottom: 5px;
+}
+/* 设置时间样式 */
+.time{
+    color: #616161;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+/* 人工服务块 */
+.contact .service{
+    width: 118px;
+    height: 28px;
+    /* 加边框 */
+    border: 1px solid #ff6700;
+    /* 变成块级元素 */
+    display: block;
+    /* 使元素居中显示 */
+    margin: 0 auto;
+    color: #ff6700;
+    line-height: 28px;
+    font-size: 12px;
+    transition: all .4s;
+}
+/* 变色 */
+.contact .service:hover{
+    background-color: #ff6700;
+    color: #fff;
+}
+.footer-logo{
+    width: 56px;
+    height: 56px;
+    margin: 0 20px 0 0;
+    float: left;
+}
+.sites{
+    float: left;
+    font-size: 12px;
+    text-align: left;
+    line-height: 18px;
+}
+.sites a,span{
+    color: #757575;
+}
+.sites a:hover{
+    color: #ff6700;
+}
+.sites p{
+    color: #b0b0b0;
+}
+.sites img{
+    margin: 4px 0 15px;
+    height: 28px;
+}
+.slogan{
+    margin: 30px 0 0;
+}
+
+
+
+
+
+
+
+
+
+
+/* 页脚样式结束 */

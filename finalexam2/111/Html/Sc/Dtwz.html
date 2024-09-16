@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 500px;
+            background-color: #000;
+        }
+
+        .span {
+            position: relative;
+            top: 100px;
+
+        }
+
+        a {
+            position: absolute;
+            left: 100px;
+            top: 100px;
+        }
+
+        .span {
+            display: flex;
+            /* justify-content: center; */
+            position: absolute;
+            /* width: 50%; */
+            /* height: 200px; */
+            /* background-color: #fff; */
+            top: 550px;
+            right: 10px;
+            animation: span 20s linear infinite;
+        }
+
+        @keyframes span {
+            form {
+                right: 10px;
+            }
+
+            50% {
+                right: 75%;
+            }
+
+            to {
+                right: 10px;
+            }
+        }
+
+        .span span {
+            -webkit-text-stroke: 1px #000;
+            font-size: 30px;
+        }
+
+        span {
+            font: 85px "Hobo Std";
+            color: #fff;
+            -webkit-text-stroke: 4px #000;
+            text-transform: uppercase;
+            text-shadow: 0 0 rgb(154, 96, 231), 0 0 rgb(218, 98, 168), 0 0 rgb(41, 138, 145);
+            /* 先向下移动自身高度的百分之50，然后顺时针旋转4度 */
+            transform: translate(0, 50%) rotate(4deg);
+            animation: move 1.4s calc(var(--i)*120ms) infinite;
+
+        }
+
+        @keyframes move {
+
+            0%,
+            100% {
+                text-shadow: 0 0 rgba(154, 96, 231, .8), 0 0 rgba(218, 98, 168, .7), 0 0 rgba(41, 138, 145, .5);
+            }
+
+            33.33% {
+                text-shadow: 0 10px rgba(114, 58, 189, .8), 0 20px rgba(218, 98, 168, .7), 0 30px rgba(41, 138, 145, .3);
+            }
+
+            50% {
+                text-shadow: 0 0 rgba(27, 169, 212, .8), 0 0 rgba(32, 120, 202, .7), 0 0 rgba(41, 138, 145, .5);
+                transform: translate(0, -50%) rotate(-4deg);
+            }
+
+            66.66% {
+                text-shadow: 0 -10px rgba(154, 96, 231, .8), 0 -20px rgba(218, 98, 168, .7), 0 -30px rgba(41, 138, 145, .3);
+            }
+        }
+
+        .whi {
+            position: absolute;
+            height: 80px;
+            width: 100%;
+            top: 520px;
+            background: #fff;
+            z-index: -999;
+            opacity: .8;
+        }
+
+        .abs {
+            display: flex;
+            justify-content: center;
+            margin-top: 200px;
+            text-decoration: none;
+
+        }
+
+        .abs span {
+            margin: 0 3px;
+            font-size: 60px;
+            color: #fff;
+            text-shadow: 0 0 rgba(177, 88, 214, .8), 0 0 rgba(214, 162, 232, .5), 0 0 rgba(170, 255, 255, .3);
+            -webkit-text-stroke: .2px #000000;
+            transform: translate(0, 30%) rotate(9deg);
+            animation: moves 2s calc(var(--i)*150ms) infinite ease-in-out;
+        }
+
+        @keyframes moves {
+
+            0%,
+            100% {
+                transform: translate(0, 30%) rotate(7deg);
+                text-shadow: 0 0 rgba(177, 88, 214, .8), 0 0 rgba(214, 162, 232, .5), 0 0 rgba(170, 255, 255, .3);
+            }
+
+            33% {
+                text-shadow: 0 4px rgba(177, 88, 214, .8), 0 6px rgba(214, 162, 232, .5), 0 8px rgba(170, 255, 255, .3);
+            }
+
+            50% {
+                transform: translate(0, -30%) rotate(-7deg);
+                text-shadow: 0 0 rgba(177, 88, 214, .8), 0 0 rgba(214, 162, 232, .5), 0 0 rgba(170, 255, 255, .3);
+            }
+
+            66% {
+                text-shadow: 0 -4px rgba(177, 88, 214, .8), 0 -6px rgba(214, 162, 232, .5), 0 -8px rgba(170, 255, 255, .3);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../Zy.html"><span style="--i:1">f</span>
+        <span style="--i:2">a</span>
+        <span style="--i:3">t</span>
+        <span style="--i:4">e</span>
+        <span style="--i:5">-</span>
+        <span style="--i:6">o</span>
+        <span style="--i:7">n</span>
+        <span style="--i:8">l</span>
+        <span style="--i:9">y</span>
+        <span style="--i:10">-</span>
+        <span style="--i:11">b</span>
+        <span style="--i:12">i</span>
+        <span style="--i:13">n</span>
+        <span style="--i:14">d</span>
+        <span style="--i:15">-</span>
+        <span style="--i:16">U</span>
+        <span style="--i:17">-</span>
+        <span style="--i:18">if</span>
+        <span style="--i:19">-</span>
+        <span style="--i:20">U</span>
+        <span style="--i:21">-</span>
+        <span style="--i:22">l</span>
+        <span style="--i:23">e</span>
+        <span style="--i:24">t</span>
+        <span style="--i:25">-</span>
+        <span style="--i:26">i</span>
+        <span style="--i:27">t</span></a>
+    <div class="span">
+        <span style="--i:1">k</span>
+        <span style="--i:2">e</span>
+        <span style="--i:3">e</span>
+        <span style="--i:4">p</span>
+        <span style="--i:5">-</span>
+        <span style="--i:6">c</span>
+        <span style="--i:7">l</span>
+        <span style="--i:8">a</span>
+        <span style="--i:9">m</span>
+        <span style="--i:10">-</span>
+        <span style="--i:11">c</span>
+        <span style="--i:12">a</span>
+        <span style="--i:13">r</span>
+        <span style="--i:14">r</span>
+        <span style="--i:15">y</span>
+        <span style="--i:16">-</span>
+        <span style="--i:17">o</span>
+        <span style="--i:18">n</span>
+    </div>
+    <!-- <div class="whi"></div> -->
+    <!-- 唯有尽力自持 方不致癫狂 -->
+    <a href="../Zy.html" class="abs">
+        <span style="--i:1">若</span>
+        <span style="--i:2">能</span>
+        <span style="--i:3">避</span>
+        <span style="--i:4">开</span>
+        <span style="--i:5">猛</span>
+        <span style="--i:6">烈</span>
+        <span style="--i:7">的</span>
+        <span style="--i:8">狂</span>
+        <span style="--i:9">喜</span>
+        <span style="--i:10">，</span>
+        <span style="--i:11">自</span>
+        <span style="--i:12">然</span>
+        <span style="--i:13">不</span>
+        <span style="--i:14">会</span>
+        <span style="--i:15">有</span>
+        <span style="--i:16">悲</span>
+        <span style="--i:17">痛</span>
+        <span style="--i:18">来</span>
+        <span style="--i:19">袭</span>
+    </a>
+</body>
+
+</html>

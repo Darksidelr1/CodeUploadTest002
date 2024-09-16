@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>画师预约</title>
+    <link rel="stylesheet" href="./css/nav.css">
+    <link rel="stylesheet" href="./css/all.css">
+    <link rel="stylesheet" href="./css/css.css">
+    <style>
+        body .shell-main-nav ul .nav-box {
+            left: 480px;
+        }
+
+        :root {
+            --bgColor: white;
+            --inputColor: black;
+            --outlineColor: rgb(141, 228, 41);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bgColor);
+        }
+
+        body.show-password {
+            --bgColor: rgba(0, 0, 0, 0.9);
+            --inputColor: white;
+            --outlineColor: rgb(151, 247, 218);
+        }
+
+        form {
+            transform: translate3d(0, 0, 0);
+            padding: 10px;
+        }
+
+        form>*+* {
+            margin-top: 10px;
+        }
+
+        .form-item>*+* {
+            margin-top: 0.5rem;
+        }
+
+        label,
+        input,
+        button {
+            font-size: 1.5rem;
+            font-family: monospace;
+            color: var(--inputColor);
+        }
+
+        label:focus,
+        input:focus,
+        button:focus {
+            outline: 3px solid var(--outlineColor);
+            outline-offset: 2px;
+        }
+
+        label::-moz-focus-inner,
+        input::-moz-focus-inner,
+        button::-moz-focus-inner {
+            border: none;
+        }
+
+        label[id=password],
+        input[id=password],
+        button[id=password] {
+            color: black;
+        }
+
+        button {
+            border: none;
+        }
+
+        [id=submit] {
+            cursor: pointer;
+            margin: 20px 0 0 2px;
+            padding: 0.75rem 1.25rem;
+            color: var(--bgColor);
+            background-color: var(--inputColor);
+            box-shadow: 4px 4px 0 rgba(30, 144, 255, 0.2);
+        }
+
+        [id=submit]:active {
+            transform: translateY(1px);
+        }
+
+        .input-wrapper {
+            position: relative;
+        }
+
+        input {
+            padding: 0.75rem 4rem 0.75rem 0.75rem;
+            width: 100%;
+            border: 2px solid transparent;
+            border-radius: 0;
+            background-color: transparent;
+            box-shadow: inset 0 0 0 2px black, inset 6px 6px 0 rgba(30, 144, 255, 0.2), 3px 3px 0 rgba(30, 144, 255, 0.2);
+            -webkit-appearance: none;
+        }
+
+        input:focus {
+            outline-offset: 1px;
+        }
+
+        .show-password input {
+            box-shadow: inset 0 0 0 2px black;
+            border: 2px dashed white;
+        }
+
+        .show-password input:focus {
+            outline: none;
+            border-color: rgb(151, 247, 218);
+        }
+
+        [id=eyeball] {
+            --size: 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            outline: none;
+            position: absolute;
+            top: 50%;
+            right: 0.75rem;
+            border: none;
+            background-color: transparent;
+            transform: translateY(-50%);
+        }
+
+        [id=eyeball]:active {
+            transform: translateY(calc(-50% + 1px));
+        }
+
+        .eye {
+            width: var(--size);
+            height: var(--size);
+            border: 2px solid var(--inputColor);
+            border-radius: calc(var(--size) / 1.5) 0;
+            transform: rotate(45deg);
+        }
+
+        .eye:before,
+        .eye:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            border-radius: 100%;
+        }
+
+        .eye:before {
+            width: 35%;
+            height: 35%;
+            background-color: var(--inputColor);
+        }
+
+        .eye:after {
+            width: 65%;
+            height: 65%;
+            border: 2px solid var(--inputColor);
+            border-radius: 100%;
+        }
+
+        [id=beam] {
+            position: absolute;
+            top: 50%;
+            right: 1.75rem;
+            -webkit-clip-path: polygon(100% 50%, 100% 50%, 0 0, 0 100%);
+            clip-path: polygon(100% 50%, 100% 50%, 0 0, 0 100%);
+            width: 100vw;
+            height: 25vw;
+            z-index: 1;
+            mix-blend-mode: multiply;
+            transition: transform 200ms ease-out;
+            transform-origin: 100% 50%;
+            transform: translateY(-50%) rotate(var(--beamDegrees, 0));
+            pointer-events: none;
+        }
+
+        .show-password [id=beam] {
+            background: rgb(151, 247, 218);
+        }
+
+        body .shell-main-footer {
+            position: absolute;
+            bottom: 100px;
+        }
+
+        body .shell {
+            height: 100vh;
+            position: relative
+        }
+
+        body .shell-main-footer {
+            height: 70px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="shell">
+        <div class="shell-main">
+            <div class="shell-main-nav">
+                <div class="logo">
+                    <img src="./image/logo.jpg" alt="">
+                    <span>薯片の前端小窝</span>
+                </div>
+                <ul>
+                    <li><a href="./index.html">关于我们</a></li>
+                    <li><a href="./Template.html">网页模板</a></li>
+                    <li><a href="./make.html">网页制作</a></li>
+                    <li><a href="./painter.html">画师预约</a></li>
+                    <li><a href="./SignUp/index.html">注册</a></li>
+                    <li><a href="./finalexam2/111/Html/Zy.html">娱乐</a></li>
+                    <div class="nav-box"></div>
+                </ul>
+            </div>
+        </div>
+        <form onsubmit="return false">
+            <div class="form-item">
+                <label>Username</label>
+                <div class="input-wrapper">
+                    <input type="text" id="username" autocomplete="off" autocorrect="off" autocapitalize="off"
+                        spellcheck="false" data-lpignore="true" />
+                </div>
+            </div>
+            <div class="form-item">
+                <label>Password</label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" autocomplete="off" autocorrect="off" autocapitalize="off"
+                        spellcheck="false" data-lpignore="true" />
+                    <button type="button" id="eyeball">
+                        <div class="eye"></div>
+                    </button>
+                    <div id="beam"></div>
+                </div>
+            </div>
+            <button id="submit">Sign in</button>
+        </form>
+        <div class="shell-main-footer">
+            <span>版权所有-薯片菌233</span>
+        </div>
+    </div>
+    <script>
+        // 获取相关元素
+        const submitButton = document.getElementById('submit'); // 登录按钮
+        const usernameInput = document.getElementById('username'); // 用户名输入框
+        const passwordInput = document.getElementById('password'); // 密码输入框
+
+        // 在点击登录按钮时执行验证逻辑
+        submitButton.addEventListener('click', () => {
+            // 获取输入框的值，并使用trim()函数去除首尾的空格
+            const username = usernameInput.value.trim(); // 用户名
+            const password = passwordInput.value.trim(); // 密码
+
+            // 检查用户名和密码是否都为空
+            if (username === '' && password === '') {
+                alert('请输入用户名和密码'); // 提示输入用户名和密码
+            }
+            // 检查用户名是否为空
+            else if (username === '') {
+                alert('请输入用户名'); // 提示输入用户名
+            }
+            // 检查密码是否为空
+            else if (password === '') {
+                alert('请输入密码'); // 提示输入密码
+            }
+            // 用户名和密码都输入了
+            else {
+                alert('登录成功'); // 弹出登录成功的提示
+            }
+        });
+    </script>
+
+
+</body>
+
+</html>
